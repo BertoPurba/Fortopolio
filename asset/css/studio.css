@@ -1,0 +1,464 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    font-family: 'Open Sans', system-ui;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a00ff;
+}
+
+#logoli {
+    text-decoration: none;
+}
+
+.logo span {
+    color: #000;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #7a00ff;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+/* Initial state for navbar and hero elements */
+.navbar, .hero {
+    opacity: 0;
+    transform: translateY(-20px); /* Slightly move elements up */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Class to trigger the animation */
+.animate-in {
+    opacity: 1;
+    transform: translateY(0); /* Move elements back to their original position */
+}
+
+
+
+.quick-access {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    background-color: #f1f6fb;
+    border-radius: 20px;
+    font-weight: 500;
+    color: #000;
+    font-size: 14px;
+    border: 1px solid #e0e0e0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quick-access:hover {
+    background-color: #e0e5f0;
+}
+
+.quick-access img {
+    margin-right: 8px;
+}
+
+.github-icon {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.github-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile and Tablet View */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        display: none;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active div:nth-child(1) {
+        transform: rotate(45deg) translateY(7px);
+    }
+
+    .hamburger.active div:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active div:nth-child(3) {
+        transform: rotate(-45deg) translateY(-7px);
+    }
+
+    .github-icon {
+        display: inline-block; /* GitHub Icon visible in tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+    }
+
+    .quick-access {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+
+    .github-icon {
+        display: none; /* GitHub icon hidden on mobile */
+    }
+}
+
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12% 10% 13%;
+    background-color: #f4f4f4;
+}
+
+.intro-section {
+    max-width: 100%;
+}
+
+.intro-section h1 {
+    font-size: 70px;
+    font-weight: bold;
+    margin: 0;
+    color: #334155;
+}
+
+.role {
+    font-size: 20px;
+    margin-top: 12px;
+    padding-left: 3px;
+    color: #334155;
+}
+
+
+
+#backToTopBtn {
+    display: none; 
+    position: fixed;
+    bottom: 20px;
+    right: 5px;
+    z-index: 99;
+    font-size: 15px;
+    background-color: #7a00ff;
+    color: white;
+    border: none;
+    padding: 5px 10px 5px 10px;
+    border-radius: 200%;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#backToTopBtn:hover {
+    background-color: #5a00cc;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+
+
+.img {
+    position: relative;
+}
+
+.img span {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    
+}
+
+.img span:nth-child(1),
+.img span:nth-child(2) {
+    top: 0;
+}
+
+.img span:nth-child(1),
+.img span:nth-child(3) {
+    left: 0;
+}
+
+.img span:nth-child(2),
+.img span:nth-child(4) {
+    right: 0;
+}
+
+.img span:nth-child(3),
+.img span:nth-child(4) {
+    bottom: 0;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    width: 75vw;
+    margin: 0 auto; /* Mengganti translateX untuk sentralisasi */
+    position: relative;
+}
+
+#grid > a {
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+#grid > a:hover {
+    cursor: pointer;
+}
+
+#grid > a:hover .title:after {
+    background-position: 0% 100%;
+}
+
+.img {
+    padding-left: 16%;
+    padding-bottom: 20%;
+    position: relative;
+    width: 200%;
+    max-width: 600px; /* Sesuaikan ukuran maksimal gambar */
+    height: auto;
+    overflow: hidden; /* Sembunyikan bagian yang meluap */
+}
+
+.img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease; /* Transisi halus untuk efek hover */
+}
+
+.img span {
+    position: absolute;
+    width: 50%; /* Setengah dari ukuran gambar */
+    height: 50%; /* Setengah dari tinggi gambar */
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0); /* Span transparan */
+    z-index: 1; /* Pastikan span ada di atas gambar */
+}
+
+/* Hilangkan warna latar belakang saat hover */
+.img span:hover {
+    background: rgba(0, 0, 0, 0); /* Tidak ada warna latar belakang */
+}
+
+/* Jika Anda ingin menambahkan efek lain saat hover */
+.img span:hover {
+    transform: scale(1.05); /* Zoom sedikit saat hover */
+}
+
+/* Menyesuaikan animasi ketika masing-masing span di-hover */
+.img span:nth-child(1):hover ~ img {
+    transform: perspective(600px) rotateX(10deg) rotateY(-10deg);
+}
+
+.img span:nth-child(2):hover ~ img {
+    transform: perspective(600px) rotateX(10deg) rotateY(10deg);
+}
+
+.img span:nth-child(3):hover ~ img {
+    transform: perspective(600px) rotateX(-10deg) rotateY(-10deg);
+}
+
+.img span:nth-child(4):hover ~ img {
+    transform: perspective(600px) rotateX(-10deg) rotateY(10deg);
+}
+
+
+
+
+.title {
+    margin-left: 16%;
+    padding-right: 4%;
+    font-weight: 400;
+    font-size: 3rem;
+    position: relative;
+}
+
+.title:after {
+    
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2.5px;
+    left: 0;
+    background-image: linear-gradient(to right, #005AB7 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: 99%;
+    transition: 0.5s;
+}
+
+.description {
+    padding-left: 16%;
+    font-size: 1rem;
+    margin-top: 0.3rem;
+    display: inline-block;
+}
+
+footer {
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: 14px;
+    margin-top: 1px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 20px;
+    max-width: 1200px;
+    padding-left: 88%;
+}
+
+
+/* Styling for Device Spec Section */
+#device-spec {
+    max-width: 800px;
+    margin: 0 auto; /* Pusatkan elemen */
+    margin-left: 16%;
+    text-align: left;
+}
+
+#device-spec h2 {
+    font-size: 2.5rem;
+    color: #334155;
+    text-align: left;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    border-bottom: 2px solid #005AB7; /* Garis bawah untuk memberi kesan modern */
+    padding-bottom: 0.5rem;
+}
+
+/* Modern table style */
+.device-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.device-table th, 
+.device-table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    font-weight: 400;
+    transition: background-color 0.3s ease;
+}
+
+/* Bold header styling */
+.device-table th {
+    font-weight: 600;
+    color: #005AB7;
+    font-size: 1.2rem;
+}
+
+/* Highlighting rows on hover */
+.device-table tr:hover td {
+    background-color: #f0f4fa; /* Sentuhan modern dengan efek hover */
+}
+
+#device-spec p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555;
+    margin-top: 0.5rem;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    #device-spec h2 {
+        font-size: 2rem;
+    }
+
+    .device-table th, 
+    .device-table td {
+        padding: 8px 10px;
+    }
+
+    #device-spec p {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,486 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+body {
+    font-family: 'Open Sans', system-ui;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a00ff;
+}
+
+#logoli {
+    text-decoration: none;
+}
+
+.logo span {
+    color: #000;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #7a00ff;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Initial state for navbar and hero elements */
+.navbar, .hero {
+    opacity: 0;
+    transform: translateY(-20px); /* Slightly move elements up */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Class to trigger the animation */
+.animate-in {
+    opacity: 1;
+    transform: translateY(0); /* Move elements back to their original position */
+}
+
+.quick-access {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    background-color: #f1f6fb;
+    border-radius: 20px;
+    font-weight: 500;
+    color: #000;
+    font-size: 14px;
+    border: 1px solid #e0e0e0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quick-access:hover {
+    background-color: #e0e5f0;
+}
+
+.quick-access img {
+    margin-right: 8px;
+}
+
+.github-icon {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.github-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile and Tablet View */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        display: none;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active div:nth-child(1) {
+        transform: rotate(45deg) translateY(7px);
+    }
+
+    .hamburger.active div:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active div:nth-child(3) {
+        transform: rotate(-45deg) translateY(-7px);
+    }
+
+    .github-icon {
+        display: inline-block; /* GitHub Icon visible in tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+    }
+
+    .quick-access {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+
+    .github-icon {
+        display: none; /* GitHub icon hidden on mobile */
+    }
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12% 10% 13%;
+    background-color: #f4f4f4;
+}
+
+.intro-section {
+    max-width: 50%;
+}
+
+.intro-section h1 {
+    font-size: 70px;
+    font-weight: bold;
+    margin: 0;
+    color: #334155;
+}
+
+.intro-section h1 .highlight {
+    background-color: #7a00ff;
+    color: white;
+    padding: 0 10px;
+    border-radius: 8px;
+}
+
+.role {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+
+.projects-section {
+    width: 100%;
+    padding: 0 0 14%;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-bottom: 1.5%;
+}
+
+.section-description {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+    padding-left: 35%;
+    text-align: left;
+}
+
+
+.project-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: auto; 
+    gap: 20px;
+
+    align-items: start; 
+    padding: 0 160px 0 0;
+}
+
+
+.project-image-vertical {
+    padding-left: 35%;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+.project-image-large {
+    grid-column: 2; 
+    width: 118%;
+}
+
+.project-image img {
+    width: 100%; 
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-image:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+
+@media (max-width: 768px) {
+    .project-gallery {
+        grid-template-columns: 1fr; 
+    }
+
+    .project-image-vertical {
+        grid-row: auto; 
+    }
+
+    .project-image-large {
+        grid-column: auto; 
+    }
+}
+
+
+
+footer {
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: 14px;
+    margin-top: 1px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 20px;
+    max-width: 1200px;
+    padding-left: 88%;
+}
+
+
+#particleCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Di belakang elemen lain */
+}
+
+
+#circularProgress {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    background: conic-gradient(#7a00ff 0%, #7a00ff 0%, #e0e0e0 0%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+#progressValue {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    #circularProgress {
+        width: 60px;
+        height: 60px;
+    }
+
+    #progressValue {
+        font-size: 14px;
+    }
+}
+
+#particleCanvasSmall {
+    width: 50px;
+    height: 50px;
+    vertical-align: middle; /* Agar sejajar dengan teks */
+}
+
+.achievement-badge {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #7a00ff;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.achievement-badge img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+#backToTopBtn {
+    display: none; 
+    position: fixed;
+    bottom: 20px;
+    right: 5px;
+    z-index: 99;
+    font-size: 15px;
+    background-color: #7a00ff;
+    color: white;
+    border: none;
+    padding: 5px 10px 5px 10px;
+    border-radius: 200%;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#backToTopBtn:hover {
+    background-color: #5a00cc;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+
+/* tablet */
+@media (max-width: 768px) {
+    /* Hero section */
+    .hero {
+        padding: 10% 5%; 
+    }
+
+    .intro-section {
+        max-width: 100%;
+    }
+
+    .intro-section h1 {
+        font-size: 50px;
+    }
+
+    .role {
+        font-size: 16px; 
+    }
+
+    /* Project */
+    .project-gallery {
+        grid-template-columns: 1fr; 
+        padding: 0 20px; 
+    }
+
+    .project-image-vertical {
+        padding-left: 0; 
+        width: 100%;
+    }
+
+    .project-image-large {
+        width: 100%; 
+    }
+
+    .footer-container {
+        flex-direction: column; 
+        padding-left: 5%; 
+    }
+}
+
+/* handphone */
+@media (max-width: 480px) {
+    /* Hero section */
+    .hero {
+        padding: 8% 10%; 
+    }
+
+    .intro-section h1 {
+        font-size: 40px;
+    }
+
+    .role {
+        font-size: 14px; 
+    }
+
+
+    .section-description {
+        font-size: 16px; 
+        padding-left: 10%; 
+    }
+
+
+    .project-gallery {
+        grid-template-columns: 1fr; 
+        padding: 0 10px; 
+    }
+
+    .project-image-vertical {
+        padding-left: 0;
+        width: 100%;
+    }
+
+    .project-image-large {
+        width: 100%; 
+    }
+
+
+    .footer-container {
+        flex-direction: column; 
+        padding-left: 3%;
+        font-size: 12px; 
+    }
+
+
+    #backToTopBtn {
+        bottom: 10px;
+        right: 10px;
+        font-size: 12px;
+    }
+}

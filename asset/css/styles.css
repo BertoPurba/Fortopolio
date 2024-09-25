@@ -1,0 +1,697 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+body {
+    font-family: 'Open Sans', system-ui;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a00ff;
+}
+
+#logoli {
+    text-decoration: none;
+}
+
+.logo span {
+    color: #000;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #7a00ff;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+/* Initial state for navbar and hero elements */
+.navbar, .hero {
+    opacity: 0;
+    transform: translateY(-20px); /* Slightly move elements up */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Class to trigger the animation */
+.animate-in {
+    opacity: 1;
+    transform: translateY(0); /* Move elements back to their original position */
+}
+
+
+
+.quick-access {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    background-color: #f1f6fb;
+    border-radius: 20px;
+    font-weight: 500;
+    color: #000;
+    font-size: 14px;
+    border: 1px solid #e0e0e0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quick-access:hover {
+    background-color: #e0e5f0;
+}
+
+.quick-access img {
+    margin-right: 8px;
+}
+
+.github-icon {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.github-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile and Tablet View */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        display: none;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active div:nth-child(1) {
+        transform: rotate(45deg) translateY(7px);
+    }
+
+    .hamburger.active div:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active div:nth-child(3) {
+        transform: rotate(-45deg) translateY(-7px);
+    }
+
+    .github-icon {
+        display: inline-block; /* GitHub Icon visible in tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+    }
+
+    .quick-access {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+
+    .github-icon {
+        display: none; /* GitHub icon hidden on mobile */
+    }
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8% 10% 23%;
+    background-color: #f9fafb;
+}
+
+.intro-section {
+    max-width: 50%;
+}
+
+.name-tag {
+    margin-bottom: 15px;
+}
+
+.name-tag .tag {
+    display: inline-block;
+    background-color: #e6e6e6;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.intro-section h1 {
+    font-size: 70px;
+    font-weight: bold;
+    margin: 0;
+    color: #334155;
+}
+
+.intro-section h1 .highlight {
+    background-color: #7a00ff;
+    color: white;
+    padding: 0 10px;
+    border-radius: 8px;
+}
+
+.role {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.description {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #555;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+.buttons .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 9px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.buttons .btn.primary {
+    background-color: #1d72b8;
+    color: white;
+}
+
+.buttons .btn.primary:hover {
+    background-color: #135e96;
+}
+
+.buttons .btn.secondary {
+    background-color: transparent;
+    color: #1d72b8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.buttons .btn.secondary:hover {
+    text-decoration: underline;
+}
+
+.tech-stack {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #555;
+    
+}
+
+.tech-stack .icons {
+    margin-top: 5px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Style for tech stack icons */
+.tech-stack .icons img {
+    filter: grayscale(100%); /* Semua gambar menjadi abu-abu */
+    transition: filter 0.3s ease; /* Menambahkan animasi transisi */
+}
+
+/* Hover effect: saat kursor di atas gambar, warna kembali normal */
+.tech-stack .icons img:hover {
+    filter: grayscale(0%); /* Gambar kembali berwarna */
+}
+
+
+.profile-picture img {
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .intro-section {
+        max-width: 100%;
+    }
+
+    .profile-picture {
+        margin-top: 20px;
+    }
+
+    .intro-section h1 {
+        font-size: 36px;
+    }
+
+    .intro-section .role, .intro-section .description {
+        font-size: 16px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: left; /* Mengubah teks menjadi rata kiri */
+        padding: 50px 5%; /* Memberikan padding yang lebih kecil untuk mobile */
+    }
+
+    .intro-section {
+        max-width: 100%;
+        text-align: left; /* Mengatur teks menjadi rata kiri */
+    }
+
+    .profile-picture {
+        display: none; /* Menghilangkan gambar profil */
+    }
+
+    .intro-section h1 {
+        font-size: 36px;
+    }
+
+    .intro-section .role, .intro-section .description {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        flex-direction: column;
+        text-align: left; /* Mengubah teks menjadi rata kiri */
+        padding: 50px 5%; /* Memberikan padding yang lebih kecil untuk ponsel */
+    }
+
+    .intro-section {
+        max-width: 100%;
+        text-align: left; /* Mengatur teks menjadi rata kiri */
+    }
+
+    .profile-picture {
+        display: none; /* Menghilangkan gambar profil */
+    }
+
+    .intro-section h1 {
+        font-size: 32px;
+    }
+
+    .intro-section .role, .intro-section .description {
+        font-size: 14px;
+    }
+}
+
+
+#melo {
+    --s: 250px;   /* Ukuran gambar */
+    --b: 8px;     /* Ketebalan border */
+    --g: 14px;    /* Jarak */
+    --c: #4ECDC4; /* Warna border */
+    
+    width: var(--s);
+    aspect-ratio: 1;
+    outline: calc(var(--s)/2) solid #0009;
+    outline-offset: calc(var(--s)/-2);
+    cursor: pointer;
+    transition: .3s;
+}
+
+#melo.active {
+    outline: var(--b) solid var(--c);
+    outline-offset: var(--g);
+}
+
+/* Gambar dalam bentuk bulat */
+img + img {
+    border-radius: 50%;
+}
+
+
+/* Styling for the scroll text */
+.scroll-text {
+    padding: 1% 10% 19%;
+    background-color: #f9fafb;
+    font-size: 32px; /* Meningkatkan ukuran font */
+    line-height: 1.5;
+    font-weight: bold;
+    text-align: center; /* Menyelaraskan teks ke tengah */
+}
+
+/* Each word initially starts with transparent color */
+.fade-in-text .word {
+    color: transparent;
+    opacity: 0;
+    transition: color 0.5s ease, opacity 0.5s ease;
+    display: inline-block;
+}
+
+/* This class will be added once the section comes into view */
+.fade-in-text .word.visible {
+    color: #000; /* Changes the text color to black */
+    opacity: 1;
+}
+
+
+.faq-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #f9fafb;
+}
+
+.faq-section h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.faq-section p {
+    font-size: 18px;
+    color: #888;
+    margin-bottom: 40px;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+details {
+    font-size: 18px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+summary {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+details p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+details[open] summary {
+    color: #7a00ff;
+}
+
+/* pertanyaan */
+
+.faq-section {
+    padding: 5% 20% 10% 20%;
+    max-width: 900px; 
+    margin: 0 auto; 
+    text-align: left;
+}
+
+.faq-section h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.faq-section p {
+    text-align: center;
+    color: #888;
+    margin-bottom: 40px;
+    font-size: 20px;
+}
+
+.faq-item {
+    margin-bottom: 30px; 
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px; 
+}
+
+.faq-question {
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 15px 0;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: #3498db;
+}
+
+.faq-answer {
+    font-size: 18px;
+    color: #555;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    padding-left: 20px; 
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    opacity: 1;
+}
+
+
+
+
+
+
+    footer {
+        padding: 40px 20px;
+        background-color: hsl(0, 0%, 98%);
+        color: #333;
+        font-size: 14px;
+    }
+    
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    
+
+
+        
+        .reveal-code-section * {
+            box-sizing: border-box;
+        }
+        
+        .reveal-code-section body {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            font-family: "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue", Helvetica, Arial, sans-serif, system-ui;
+            background: hsl(0 0% 0%);
+            gap: 2rem;
+        }
+        
+        .reveal-code-section body::before {
+            --line: hsl(0 0% 95% / 0.25);
+            content: "";
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            background:
+            linear-gradient(90deg, var(--line) 1px, transparent 1px 10vmin) 0 -5vmin / 10vmin 10vmin,
+            linear-gradient(var(--line) 1px, transparent 1px 10vmin) 0 -5vmin / 10vmin 10vmin;
+            mask: linear-gradient(-15deg, transparent 30%, white);
+            top: 0;
+            z-index: -1;
+        }
+        
+        .reveal-code-section section {
+            display: grid;
+            gap: 4rem;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .reveal-code-section section p {
+            margin: 0;
+            font-size: 2.25rem;
+            color: hsl(0 0% 40%);
+            text-align: center;
+            background: linear-gradient(hsl(0 0% 80%), hsl(0 0% 50%));
+            color: transparent;
+            background-clip: text;
+        }
+        
+        .reveal-code-section .code {
+            font-size: 3rem;
+            display: flex;
+            flex-wrap: nowrap;
+            color: hsl(0, 4%, 10%);
+            border-radius: 1rem;
+            background: hsl(0, 0%, 98%);
+            justify-content: center;
+            box-shadow: 0 1px hsl(0 0% 100% / 0.25) inset;
+        }
+        
+        .reveal-code-section .code:hover {
+            cursor: grab;
+        }
+        
+        .reveal-code-section .digit {
+            display: flex;
+            height: 100%;
+            padding: 5.5rem 1rem;
+        }
+        
+        .reveal-code-section .digit:focus-visible {
+            outline-color: hsl(0 0% 50% / 0.25);
+            outline-offset: 1rem;
+        }
+        
+        .reveal-code-section .digit span {
+            scale: calc(var(--active, 0) + 0.5);
+            filter: blur(calc((1 - var(--active, 0)) * 1rem));
+            transition: scale calc(((1 - var(--active, 0)) + 0.2) * 1s), filter calc(((1 - var(--active, 0)) + 0.2) * 1s);
+        }
+        
+        .reveal-code-section ul {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .reveal-code-section .digit:first-of-type {
+            padding-left: 5rem;
+        }
+        
+        .reveal-code-section .digit:last-of-type {
+            padding-right: 5rem;
+        }
+        
+        :root {
+            --lerp-0: 1; /* === sin(90deg) */
+            --lerp-1: calc(sin(50deg));
+            --lerp-2: calc(sin(45deg));
+            --lerp-3: calc(sin(35deg));
+            --lerp-4: calc(sin(25deg));
+            --lerp-5: calc(sin(15deg));
+        }
+        
+        .reveal-code-section .digit:is(:hover, :focus-visible) {
+            --active: var(--lerp-0);
+        }
+        .reveal-code-section .digit:is(:hover, :focus-visible) + .digit,
+        .reveal-code-section .digit:has(+ .digit:is(:hover, :focus-visible)) {
+            --active: var(--lerp-1);
+        }
+        .reveal-code-section .digit:is(:hover, :focus-visible) + .digit + .digit,
+        .reveal-code-section .digit:has(+ .digit + .digit:is(:hover, :focus-visible)) {
+            --active: var(--lerp-2);
+        }
+        .reveal-code-section .digit:is(:hover, :focus-visible) + .digit + .digit + .digit,
+        .reveal-code-section .digit:has(+ .digit + .digit + .digit:is(:hover, :focus-visible)) {
+            --active: var(--lerp-3);
+        }
+        .reveal-code-section .digit:is(:hover, :focus-visible) + .digit + .digit + .digit + .digit,
+        .reveal-code-section .digit:has(+ .digit + .digit + .digit + .digit:is(:hover, :focus-visible)) {
+            --active: var(--lerp-4);
+        }
+        .reveal-code-section .digit:is(:hover, :focus-visible) + .digit + .digit + .digit + .digit + .digit,
+        .reveal-code-section .digit:has(+ .digit + .digit + .digit + .digit + .digit:is(:hover, :focus-visible)) {
+            --active: var(--lerp-5);
+        }
+
+
+#backToTopBtn {
+    display: none; 
+    position: fixed;
+    bottom: 20px;
+    right: 5px;
+    z-index: 99;
+    font-size: 15px;
+    background-color: #7a00ff;
+    color: white;
+    border: none;
+    padding: 5px 10px 5px 10px;
+    border-radius: 200%;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#backToTopBtn:hover {
+    background-color: #5a00cc;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+}
+

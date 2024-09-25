@@ -1,0 +1,58 @@
+html :
+<div id="progressContainer">
+        <div id="progressBar"></div>
+</div>
+
+css :
+#progressContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px; /* Lebar bar */
+    background-color: #1a1a1a;
+    z-index: 1000;
+}
+
+/* Bar progres dengan efek gradient dan glow */
+#progressBar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff00e0, #7a00ff, #00f0ff);
+    box-shadow: 0 0 15px rgba(122, 0, 255, 0.8), 0 0 30px rgba(255, 0, 224, 0.7), 0 0 45px rgba(0, 240, 255, 0.6);
+    border-radius: 0 5px 5px 0; /* Rounded edge di ujung kanan */
+    transition: width 0.3s ease-in-out; /* Smooth transition saat scrolling */
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 15px rgba(122, 0, 255, 0.8), 0 0 30px rgba(255, 0, 224, 0.7), 0 0 45px rgba(0, 240, 255, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(122, 0, 255, 1), 0 0 50px rgba(255, 0, 224, 1), 0 0 60px rgba(0, 240, 255, 0.9);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(122, 0, 255, 0.8), 0 0 30px rgba(255, 0, 224, 0.7), 0 0 45px rgba(0, 240, 255, 0.6);
+    }
+}
+
+#progressBar {
+    animation: pulseGlow 2s infinite ease-in-out;
+}
+
+
+JS :
+window.onscroll = function() {
+    updateProgressBar();
+};
+function updateProgressBar() {
+    const progressBar = document.getElementById('progressBar');
+    
+    // Hitung tinggi scroll dan persentase scroll
+    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let progress = (scrollTop / scrollHeight) * 100;
+
+    // Update lebar progress bar sesuai dengan persentase scroll
+    progressBar.style.width = progress + '%';
+}

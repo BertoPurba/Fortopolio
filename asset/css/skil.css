@@ -1,0 +1,573 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+html, body {
+    margin: 0;
+    background-color: #f2f2f2;
+    height: 100%;
+    font-family: 'Open Sans', system-ui;
+}
+
+
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a00ff;
+}
+
+#logoli {
+    text-decoration: none;
+}
+
+.logo span {
+    color: #000;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #7a00ff;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+/* Initial state for navbar and hero elements */
+.navbar, .hero {
+    opacity: 0;
+    transform: translateY(-20px); /* Slightly move elements up */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Class to trigger the animation */
+.animate-in {
+    opacity: 1;
+    transform: translateY(0); /* Move elements back to their original position */
+}
+
+
+
+.quick-access {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    background-color: #f1f6fb;
+    border-radius: 20px;
+    font-weight: 500;
+    color: #000;
+    font-size: 14px;
+    border: 1px solid #e0e0e0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quick-access:hover {
+    background-color: #e0e5f0;
+}
+
+.quick-access img {
+    margin-right: 8px;
+}
+
+.github-icon {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.github-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile and Tablet View */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        display: none;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active div:nth-child(1) {
+        transform: rotate(45deg) translateY(7px);
+    }
+
+    .hamburger.active div:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active div:nth-child(3) {
+        transform: rotate(-45deg) translateY(-7px);
+    }
+
+    .github-icon {
+        display: inline-block; /* GitHub Icon visible in tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+    }
+
+    .quick-access {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+
+    .github-icon {
+        display: none; /* GitHub icon hidden on mobile */
+    }
+}
+
+/* Kontainer progress bar */
+#progressContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px; /* Lebar bar */
+    background-color: #ffffff;
+    z-index: 1000;
+}
+
+/* Bar progres dengan efek gradient dan glow */
+#progressBar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff00e0, #7a00ff, #00f0ff);
+    box-shadow: 0 0 15px rgba(122, 0, 255, 0.8), 0 0 30px rgba(255, 0, 224, 0.7), 0 0 45px rgba(0, 240, 255, 0.6);
+    border-radius: 0 5px 5px 0; /* Rounded edge di ujung kanan */
+    transition: width 0.3s ease-in-out; /* Smooth transition saat scrolling */
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 15px rgba(122, 0, 255, 0.8), 0 0 30px rgba(255, 0, 224, 0.7), 0 0 45px rgba(0, 240, 255, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(122, 0, 255, 1), 0 0 50px rgba(255, 0, 224, 1), 0 0 60px rgba(0, 240, 255, 0.9);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(122, 0, 255, 0.8), 0 0 30px rgba(255, 0, 224, 0.7), 0 0 45px rgba(0, 240, 255, 0.6);
+    }
+}
+
+#progressBar {
+    animation: pulseGlow 2s infinite ease-in-out;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12% 10% 13%;
+    background-color: #f4f4f4;
+}
+
+.intro-section {
+    max-width: 100%;
+}
+
+.intro-section h1 {
+    font-size: 70px;
+    font-weight: bold;
+    margin: 0;
+    color: #334155;
+}
+
+.role {
+    font-size: 20px;
+    margin-top: 12px;
+    padding-left: 3px;
+    color: #334155;
+}
+
+#backToTopBtn {
+    display: none; 
+    position: fixed;
+    bottom: 20px;
+    right: 5px;
+    z-index: 99;
+    font-size: 15px;
+    background-color: #7a00ff;
+    color: white;
+    border: none;
+    padding: 5px 10px 5px 10px;
+    border-radius: 200%;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#backToTopBtn:hover {
+    background-color: #5a00cc;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+
+/* TOC Styling */
+.toc {
+    position: fixed;
+    top: 100px;
+    right: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    width: 250px;
+    font-family: 'Arial', sans-serif;
+    z-index: 100;
+}
+
+.toc h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #0f172a;
+}
+
+.toc ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc ul li {
+    margin-bottom: 10px;
+}
+
+.toc ul li a {
+    text-decoration: none;
+    color: #0f172a;
+    font-size: 15px;
+    font-weight: 500;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.toc ul li a:hover {
+    background-color: #f1f5f9;
+}
+
+.toc ul li a.active {
+    font-weight: bold;
+    color: #2563eb; /* Blue for active state */
+    background-color: #e0f2fe; /* Light blue background for active item */
+}
+
+/* For smaller screens (responsive design) */
+@media (max-width: 768px) {
+    .toc {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        padding: 10px;
+    }
+
+    .toc ul li a {
+        font-size: 14px;
+    }
+}
+
+.title {
+    padding-left: 9%;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-left: 10%;
+    color: #334155;
+}
+
+
+/* TOC Styling */
+.toc {
+    position: fixed;
+    top: 100px;
+    right: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    width: 250px;
+    font-family: 'Arial', sans-serif;
+    z-index: 100;
+}
+
+.toc h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #0f172a;
+}
+
+.toc ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc ul li {
+    margin-bottom: 10px;
+}
+
+.toc ul li a {
+    text-decoration: none;
+    color: #0f172a;
+    font-size: 15px;
+    font-weight: 500;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.toc ul li a:hover {
+    background-color: #f1f5f9;
+}
+
+.toc ul li a.active {
+    font-weight: bold;
+    color: #2563eb; /* Blue for active state */
+    background-color: #e0f2fe; /* Light blue background for active item */
+}
+
+/* For smaller screens (responsive design) */
+@media (max-width: 768px) {
+    .toc {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        padding: 10px;
+    }
+
+    .toc ul li a {
+        font-size: 14px;
+    }
+}
+
+.title {
+    padding-left: 11%;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-left: 12%;
+    color: #334155;
+    padding-right: 22%;
+}
+
+
+/* Tags styling */
+#skills {
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+#skills h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #334155;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-left: 12%;
+    padding-right: 20%;
+}
+
+.tag {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #e5e7eb;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #1f2937;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.tag:hover {
+    background-color: #cbd5e1;
+}
+
+.offset {
+    height: 100px; /* Atur jarak sesuai kebutuhan */
+}
+
+.offset1 {
+    height: 80px; /* Atur jarak sesuai kebutuhan */
+}
+
+footer {
+    padding-top: 10%;
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: 14px;
+    margin-top: 1px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 20px;
+    max-width: 1200px;
+    padding-left: 88%;
+}
+
+
+/* Untuk seluruh body agar responsif di mobile dan tablet */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* Adjust font size for readability on smaller screens */
+    }
+
+    /* Konten selain navbar tetap responsif */
+    .hero h1 {
+        font-size: 40px; /* Lebih kecil untuk layar mobile */
+    }
+
+    .role {
+        font-size: 16px;
+    }
+
+    .toc {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        padding: 10px;
+    }
+
+    .toc ul li a {
+        font-size: 14px;
+    }
+
+    .tags {
+        padding-left: 5%;
+        padding-right: 10%;
+    }
+
+    .footer-container {
+        padding-left: 20%;
+    }
+
+    /* Pastikan bagian utama situs responsif */
+    .skill-item {
+        padding-left: 5%; /* Mengurangi padding untuk perangkat kecil */
+    }
+
+    .title {
+        padding-left: 5%;
+    }
+
+    .tags {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    /* Responsive back-to-top button */
+    #backToTopBtn {
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+/* Responsif untuk layar tablet yang lebih besar dari 480px */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .role {
+        font-size: 14px;
+    }
+
+    .footer-container {
+        padding-left: 10%;
+    }
+
+    .tags {
+        padding-left: 5%;
+        padding-right: 10%;
+    }
+}
+
+/* Hilangkan TOC untuk tablet dan handphone */
+@media (max-width: 768px) {
+    .toc {
+        display: none;
+    }
+}
